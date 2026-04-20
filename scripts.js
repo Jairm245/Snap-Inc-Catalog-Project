@@ -96,7 +96,7 @@ const Alignment = Object.freeze({
 // class template that creates an object with a name, picture, alignment, Date of Birth, Biography, and signature moves
 class luchador
 {
-  constructor(title,imageURL,alignment,realName = "",DOB = "",bio = "", signatureMove = "")
+  constructor(title,imageURL,alignment,realName = "",DOB = "",bio = "", signatureMove = "NONE")
   {
     this.title = title;
     this.imageURL = imageURL;
@@ -278,6 +278,7 @@ function addInfo(event)
   const indexInput = document.getElementById("bioIndex").value;
   const bioInput = document.getElementById("newBio").value; // collects user input
   const moveInput = document.getElementById("newMove").value;
+  const DOBInput = document.getElementById("newDOB").value;
 
   const i = parseInt(indexInput) -1;
 
@@ -289,7 +290,7 @@ function addInfo(event)
 
   luchadorArray[i].bio += " " + bioInput;
   luchadorArray[i].signatureMove = moveInput; // add info to bio and replaces signature move
-
+  luchadorArray[i].DOB = DOBInput;
   showCards(); // updates cards
 
   document.getElementById("add-info-form").reset();
@@ -307,3 +308,4 @@ document.addEventListener("DOMContentLoaded", () => {
   const bioForm = document.getElementById("add-info-form");
   if (bioForm) bioForm.addEventListener("submit", addInfo);
 });
+
