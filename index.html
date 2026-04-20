@@ -1,31 +1,67 @@
 <!doctype html>
 <html>
   <head>
-    <title>LA TV Shows | Home</title>
+    <title> Great Masked Wrestlers | Home</title>
     <meta name="description" content="A Catalog of Shows Set in Los Angeles" />
     <link rel="stylesheet" href="style.css" />
-    <script type="text/javascript" src="scripts.js"></script>
+    
   </head>
 
   <body>
     <header class="main-header">
-      <h1 class="title">LA TV Shows</h1>
+      <h1 class="title">Great Masked Wrestlers</h1>
     </header>
     <div id="card-container"></div>
     <div class="card" style="display: none">
       <div class="card-content">
-        <h2>TV Show Title</h2>
-        <img src="" alt="TV Show Poster" />
+        <h3>Great Masked Wrestlers</h3>
+        <img src="" alt="Wrestler Image" />
         <ul>
-          <li>Bullet Point 1</li>
+          <li>This is another test change</li>
           <li>Bullet Point 2</li>
           <li>Bullet Point 3</li>
         </ul>
       </div>
     </div>
     <div class="footer">
-      <button onclick="quoteAlert()">Get A Quote!</button>
-      <button onclick="removeLastCard()">Remove A Card!</button>
+      <button onclick="changeAlignment()">Change Alignment</button>
+      <button onclick="removeHeel()">Remove The Bad Guys!</button>
+      <button onclick="removeFace()">Remove The Good Guys!</button>
+      <form id="add-luchador-form">
+        <label for="title">Title:</label>
+        <input type="text" id="title" name="title" required>
+
+        <label for="imageURL">Image URL:</label>
+        <input type="text" id="imageURL" name="imageURL" required>
+
+        <label for="alignment">Alignment:</label>
+        <select id="alignment" name="alignment" required>
+          <option value="FACE">FACE</option>
+          <option value="HEEL">HEEL</option>
+        </select>
+        <button type="submit">Add Luchador</button>
+      </form>
+      <form id ="change-img-form">
+        <label for="index">Card Number:</label>
+        <input type="text" id="index" name="index" required>
+
+        <label for="imageURL">Image URL:</label>
+        <input type="text" id="newImageURL" name="newImageURL" required>
+        <button type="submit">Change Image</button>
+      </form>
+      <form id="add-info-form">
+        <label for="bioIndex">Card Number:</label>
+        <input type="text" id="bioIndex" name="bioIndex" required>
+
+        <label for="newMove">Replace Move:</label>
+        <input type="text" id="newMove" name="newMove" >
+
+        <label for="bio">Add New Info:</label>
+        <input type="text" id="newBio" name="newBio" >
+        <button type="submit">Add Info</button>
+      </form>
     </div>
   </body>
+  <script type="text/javascript" src="scripts.js"></script>
 </html>
+
