@@ -278,7 +278,7 @@ function addInfo(event)
   const indexInput = document.getElementById("bioIndex").value;
   const bioInput = document.getElementById("newBio").value; // collects user input
   const moveInput = document.getElementById("newMove").value;
-  const DOBInput = document.getElementById("newDOB").value;
+  const DOBInput = document.getElementById("newDOB").value; // add DOB
 
   const i = parseInt(indexInput) -1;
 
