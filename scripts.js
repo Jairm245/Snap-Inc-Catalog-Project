@@ -145,15 +145,15 @@ let  luchadorArray = [
 // you should use more than just an array of strings to store it all.
 
 // This function adds cards the page to display the data in the array
-function showCards(EnterArrayName = luchadorArray) {
+function showCards(enterArrayName = luchadorArray) {
   const cardContainer = document.getElementById("card-container");
   cardContainer.innerHTML = "";
-  EnterArrayName.forEach((EnterArrayName,index) => 
+  enterArrayName.forEach((enterArrayName,index) => 
     
     
   
     {
-    cardContainer.innerHTML += EnterArrayName[index].generateHTML(index);
+    cardContainer.innerHTML += enterArrayName[index].generateHTML(index);
 
 
 
