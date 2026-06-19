@@ -126,7 +126,7 @@ class luchador
   }
 }
 // An array that contains all our objects this helps with organization and makes writing functions easier
-const luchadorArray = [
+let  luchadorArray = [
   new luchador("Rey Mysterio", REY_MYSTERIO_URL, Alignment.FACE,REY_REAL_NAME,REY_DOB,REY_BIO,REY_SIG_MOVE),
   new luchador("Mistico", MISTICO_URL, Alignment.FACE,MISTICO_REAL_NAME, MISTICO_DOB, MISTICO_BIO,MISTICO_SIG_MOVE),
   new luchador("El Santo", SANTOS_URL, Alignment.FACE,SANTOS_REAL_NAME, SANTOS_DOB, SANTOS_BIO,SANTOS_SIG_MOVE),
@@ -145,11 +145,18 @@ const luchadorArray = [
 // you should use more than just an array of strings to store it all.
 
 // This function adds cards the page to display the data in the array
-function showCards() {
+function showCards(EnterArrayName = luchadorArray) {
   const cardContainer = document.getElementById("card-container");
   cardContainer.innerHTML = "";
-  luchadorArray.forEach((luchador,index) => {
-    cardContainer.innerHTML += luchador.generateHTML(index);
+  EnterArrayName.forEach((EnterArrayName,index) => 
+    
+    
+  
+    {
+    cardContainer.innerHTML += EnterArrayName[index].generateHTML(index);
+
+
+
   });
   
 }
@@ -309,3 +316,70 @@ document.addEventListener("DOMContentLoaded", () => {
   if (bioForm) bioForm.addEventListener("submit", addInfo);
 });
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+function removeWrestler()
+{
+   // Collects the text input from the search bar
+   const SearchBar = document.getElementById("userInput");
+
+
+  //  Get teh value from the user text
+   const SearchValue = SearchBar.value.toLowerCase(); // makes user input lowercase for easier searching
+
+// It works from here
+
+
+// Creating a new array to hold the data
+
+
+  
+
+ 
+  for (let i = luchadorArray.length -1; i >= 0; i--)
+  {
+
+    // If the input matches the wrestler Real Name then we will remove that wrestler from teh array
+    if(luchadorArray[i].realName.toLowerCase() === SearchValue)
+    {
+
+      console.log(SearchValue);
+      console.log(luchadorArray[i].realName.toLowerCase());
+
+
+
+
+    luchadorArray.splice(i,1);
+    
+
+
+    showCards();
+
+    return;
+
+    }
+
+  }
+   
+
+   
+
+
+
+
+
+}
