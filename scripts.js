@@ -146,18 +146,21 @@ let  luchadorArray = [
 
 // This function adds cards the page to display the data in the array
 function showCards(enterArrayName = luchadorArray) {
+
+
+  // Find the card container and empty the HTML inside of it
   const cardContainer = document.getElementById("card-container");
   cardContainer.innerHTML = "";
-  enterArrayName.forEach((enterArrayName,index) => 
-    
-    
-  
-    {
-    cardContainer.innerHTML += enterArrayName[index].generateHTML(index);
+
+
+  // Loop through the array and If I is less then the size of the array keep generating HTML
+  for(let i = 0; i < enterArrayName.length; i++)
+  {
+    cardContainer.innerHTML += enterArrayName[i].generateHTML(i);
 
 
 
-  });
+  }
   
 }
 
