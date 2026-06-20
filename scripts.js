@@ -126,7 +126,7 @@ class luchador
   }
 }
 // An array that contains all our objects this helps with organization and makes writing functions easier
-const luchadorArray = [
+let  luchadorArray = [
   new luchador("Rey Mysterio", REY_MYSTERIO_URL, Alignment.FACE,REY_REAL_NAME,REY_DOB,REY_BIO,REY_SIG_MOVE),
   new luchador("Mistico", MISTICO_URL, Alignment.FACE,MISTICO_REAL_NAME, MISTICO_DOB, MISTICO_BIO,MISTICO_SIG_MOVE),
   new luchador("El Santo", SANTOS_URL, Alignment.FACE,SANTOS_REAL_NAME, SANTOS_DOB, SANTOS_BIO,SANTOS_SIG_MOVE),
@@ -145,12 +145,22 @@ const luchadorArray = [
 // you should use more than just an array of strings to store it all.
 
 // This function adds cards the page to display the data in the array
-function showCards() {
+function showCards(enterArrayName = luchadorArray) {
+
+
+  // Find the card container and empty the HTML inside of it
   const cardContainer = document.getElementById("card-container");
   cardContainer.innerHTML = "";
-  luchadorArray.forEach((luchador,index) => {
-    cardContainer.innerHTML += luchador.generateHTML(index);
-  });
+
+
+  // Loop through the array and If I is less then the size of the array keep generating HTML
+  for(let i = 0; i < enterArrayName.length; i++)
+  {
+    cardContainer.innerHTML += enterArrayName[i].generateHTML(i);
+
+
+
+  }
   
 }
 
@@ -309,3 +319,73 @@ document.addEventListener("DOMContentLoaded", () => {
   if (bioForm) bioForm.addEventListener("submit", addInfo);
 });
 
+
+
+
+
+
+
+
+
+
+
+
+
+//  This function will search for the wrestler and if the wrestler is found then it will tempeoraly be removed from the array but if the search value is cleared and pressed the member will be added back to the array /.
+
+
+ 
+function removeWrestler()
+{
+   // Collects the text input from the search bar
+   const SearchBar = document.getElementById("userInput");
+
+
+  //  Get teh value from the user text
+   const SearchValue = SearchBar.value.toLowerCase(); // makes user input lowercase for easier searching
+
+// It works from here
+
+
+// Creating a new array to hold the data
+
+  let newArray = []; 
+
+
+  
+
+ 
+  for (let i = luchadorArray.length -1; i >= 0; i--)
+  {
+
+    // If the input matches the wrestler Real Name then we will remove that wrestler from teh array
+    if(luchadorArray[i].realName.toLowerCase() !== SearchValue)
+    {
+
+      console.log(SearchValue);
+      console.log(luchadorArray[i].realName.toLowerCase());
+
+
+
+
+    newArray.push(luchadorArray[i]); // If the real name doesnt match the wrestler then we will push that werestlter into a new array
+
+    // show the new array with the removed wrestler
+
+  
+
+    }
+
+
+  }
+
+   showCards(newArray);
+   
+
+   
+
+
+
+
+
+}
