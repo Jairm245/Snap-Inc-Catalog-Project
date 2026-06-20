@@ -331,7 +331,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-
+//  This function will search for the wrestler and if the wrestler is found then it will tempeoraly be removed from the array but if the search value is cleared and pressed the member will be added back to the array /.
 
 
  
@@ -349,6 +349,8 @@ function removeWrestler()
 
 // Creating a new array to hold the data
 
+  let newArray = []; 
+
 
   
 
@@ -357,7 +359,7 @@ function removeWrestler()
   {
 
     // If the input matches the wrestler Real Name then we will remove that wrestler from teh array
-    if(luchadorArray[i].realName.toLowerCase() === SearchValue)
+    if(luchadorArray[i].realName.toLowerCase() !== SearchValue)
     {
 
       console.log(SearchValue);
@@ -366,17 +368,18 @@ function removeWrestler()
 
 
 
-    luchadorArray.splice(i,1);
-    
+    newArray.push(luchadorArray[i]); // If the real name doesnt match the wrestler then we will push that werestlter into a new array
 
+    // show the new array with the removed wrestler
 
-    showCards();
-
-    return;
+  
 
     }
 
+
   }
+
+   showCards(newArray);
    
 
    
